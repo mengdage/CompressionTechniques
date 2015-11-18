@@ -11,6 +11,12 @@ GLena = ind2gray(lena, lmap);
 % display the intensity image GLena
 figure, imshow(mat2gray(GLena));
 
-%%
+%% do quantization
 lv = 8;
-[qGLena, ds, rs] = uniformQuantizer(Glena, lv);
+[qGLena, ds, rs] = uniformQuantizer(GLena, lv);
+
+%% do dequantization
+dGLena = uniformDequantizer(qGLena, rs);
+
+%%
+figure, imshow(mat2gray(qGLena));
